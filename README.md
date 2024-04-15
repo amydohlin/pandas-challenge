@@ -89,12 +89,12 @@ Average reading score
         
 
 School Summary Analysis
-Attempted to create the "Per School Summary" data frame, but there is an issue with my school_types variable. Instructor ran out of time in 
+Initial Submission and Issue: Attempted to create the "Per School Summary" data frame, but there is an issue with my school_types variable. Instructor ran out of time in 
     office hours helping me and another student with the same issue. We had experimented with a couple of different things to get the list
     of just school names with their type, and the only thing that worked was the .reset_index().drop_duplicates().
         
-        
--
+Second Submission: I got the dataframe to work with the help of Xpert Learning Assistant, I needed to make sure that "", {}, and commas were in the correct places. Then I used the .map() function to transform elements in different variables/series into the correct format by inserting "{:,.2f}".format to round the integer (now float) to two decimal places. This was applied to Total School Budget, Per Student Budget, Average Math Test Scores per School, Average Reading Scores per School, Percent of Students Passing Math per School, Percent of Students Passing Reading per School, and Percent of Students Passing Overall per School. To take it a small step further, I added a $ for the variables that contained monetary values and a % for the variables that contained percentage values.
+
 ------------------------------------------------------------------------
 
 Highest-Performing Schools (by % Overall Passing)
