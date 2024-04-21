@@ -10,32 +10,32 @@ Perform the necessary calculations and then create a high-level snapshot of the 
 Include the following:
 
 Total number of unique schools (Cell 6)
-    -Used .nunique() to pull out each school name and count them.
+    - Used .nunique() to pull out each school name and count them.
 
 Total students (Cell 7)
-    -Used .unique() to count each unique student name.
+    - Used .unique() to count each unique student name.
 
 Total budget (Cell 8)
-    -Used .sum() in the original school_data.csv to add up the budget for each school.
-    -I chose to pull the budgets from that original data set since every value was unique and did not require additional coding.
+    - Used .sum() in the original school_data.csv to add up the budget for each school.
+    - I chose to pull the budgets from that original data set since every value was unique and did not require additional coding.
 
 Average math score (Cell 9)
-    -Calculated using .mean() in the merged data frame in the math_score column.
+    - Calculated using .mean() in the merged data frame in the math_score column.
 
 Average reading score (Cell 10)
-    -Calculated using .mean() in the merged data frame in the reading_score column.
+    - Calculated using .mean() in the merged data frame in the reading_score column.
 
 % passing math (the percentage of students who passed math) (Cell 11)
-    -First set up a variable to store the .count() of math scores >=70, with 70 being the lowest possible score to pass.
-    -Then calculated the percentage by dividing the number of passing scores by the total number of students, and multiplying by 100.
+    - First set up a variable to store the .count() of math scores >=70, with 70 being the lowest possible score to pass.
+    - Then calculated the percentage by dividing the number of passing scores by the total number of students, and multiplying by 100.
 
 % passing reading (the percentage of students who passed reading) (Cell 12)
-    -First set up a variable to store the .count() of reading scores >=70, with 70 being the lowest possible score to pass.
-    -Then calculated the percentage by dividing the number of passing scores by the total number of students, and multiplying by 100.
+    - First set up a variable to store the .count() of reading scores >=70, with 70 being the lowest possible score to pass.
+    - Then calculated the percentage by dividing the number of passing scores by the total number of students, and multiplying by 100.
 
 % overall passing (the percentage of students who passed math AND reading) (Cell 13)
-    -Added together the passing math and reading scores by concatenating them with "&".
-    -Then calculated the percentage by dividing the number of passing scores by the total number of students, and multiplying by 100.
+    - Added together the passing math and reading scores by concatenating them with "&".
+    - Then calculated the percentage by dividing the number of passing scores by the total number of students, and multiplying by 100.
     
 
 District Summary Analysis
@@ -45,7 +45,6 @@ The summary table created at the end of this section shows that there is a total
 75% of these students passed math and 86% passed reading as standalone categories. The average scores of 78.9 in math and 81.8 in reading show that students are more adept at reading than math, but are on the lower end of passing in general.
 
 65.2% of these students passed both math and reading, which suggests that approximately one third of the total students needs more academic help to pass math or reading.
--
 ------------------------------------------------------------------------
 School Summary
 Perform the necessary calculations and then create a DataFrame that summarizes key metrics about each school.
@@ -53,39 +52,39 @@ Perform the necessary calculations and then create a DataFrame that summarizes k
 Include the following:
 
 School name/School type
-    -Found by setting the index to school_name and type.
+    - Found by setting the index to school_name and type.
         -Per instructor, used .reset_index().drop_duplicates() to list each school_name and its type only once.
-    -Attempted to use .unique() but this did not work.
-    -Current submission I used school_types = school_data_complete_df.groupby(["school_name"])["type"].first() in cell 15 to just get the school names and types, but I think this messed up my code further down.
+    - Attempted to use .unique() but this did not work.
+    - Current submission I used school_types = school_data_complete_df.groupby(["school_name"])["type"].first() in cell 15 to just get the school names and types, but I think this messed up my code further down.
 
 Total students
-    -Performed a .value_counts() within the school_name column to obtain the total number of students per school.
+    - Performed a .value_counts() within the school_name column to obtain the total number of students per school.
 
 Total school budget
-    -Referenced the school_name and budget columns within the merged data frame and used .mean().
+    - Referenced the school_name and budget columns within the merged data frame and used .mean().
 
 Per student budget
-    -Using the value from the total per school budget (above), I was able to divide each school's budget by the number of students to find
+    - Using the value from the total per school budget (above), I was able to divide each school's budget by the number of students to find
         out the per student budget.
 
 Average math score
-    -Performed .groupby() to cross-reference each math score with its corresponding school, followed by .mean() in the same line to 
+    - Performed .groupby() to cross-reference each math score with its corresponding school, followed by .mean() in the same line to 
         average the scores per school.
 
 Average reading score
-    -Performed .groupby() to cross-reference each reading score with its corresponding school, followed by .mean() in the same line to 
+    - Performed .groupby() to cross-reference each reading score with its corresponding school, followed by .mean() in the same line to 
         average the scores per school.
 
 % passing math (the percentage of students who passed math)
-    -Calculated the number of students who passed math (per school) in cell 19, then used this value in cell 22, divided by the total number 
+    - Calculated the number of students who passed math (per school) in cell 19, then used this value in cell 22, divided by the total number 
         of students per school, and multiplied by 100.
 
 % passing reading (the percentage of students who passed reading)
-    -Calculated the number of students who passed reading (per school) in cell 20, then used this value in cell 22, divided by the total
+    - Calculated the number of students who passed reading (per school) in cell 20, then used this value in cell 22, divided by the total
             number of students per school, and multiplied by 100.
         
 % overall passing (the percentage of students who passed math AND reading)
-    -Calculated the number of students who passed both math and reading (per school) in cell 21, then used this value in cell 22, divided by
+    - Calculated the number of students who passed both math and reading (per school) in cell 21, then used this value in cell 22, divided by
         the total number of students per school, and multiplied by 100.
         
 
