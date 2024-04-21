@@ -56,6 +56,7 @@ School name/School type
     -Found by setting the index to school_name and type.
         -Per instructor, used .reset_index().drop_duplicates() to list each school_name and its type only once.
     -Attempted to use .unique() but this did not work.
+    -Current submission I used school_types = school_data_complete_df.groupby(["school_name"])["type"].first() in cell 15 to just get the school names and types, but I think this messed up my code further down.
 
 Total students
     -Performed a .value_counts() within the school_name column to obtain the total number of students per school.
@@ -93,50 +94,34 @@ Initial Submission and Issue: Attempted to create the "Per School Summary" data 
     office hours helping me and another student with the same issue. We had experimented with a couple of different things to get the list
     of just school names with their type, and the only thing that worked was the .reset_index().drop_duplicates().
         
-Second Submission: I got the dataframe to work with the help of Xpert Learning Assistant, I needed to make sure that "", {}, and commas were in the correct places. Then I used the .map() function to transform elements in different variables/series into the correct format by inserting "{:,.2f}".format to round the integer (now float) to two decimal places. This was applied to Total School Budget, Per Student Budget, Average Math Test Scores per School, Average Reading Scores per School, Percent of Students Passing Math per School, Percent of Students Passing Reading per School, and Percent of Students Passing Overall per School. To take it a small step further, I added a $ for the variables that contained monetary values and a % for the variables that contained percentage values.
+Second Submission: I got the dataframe to work with the help of Xpert Learning Assistant, I needed to make sure that "", {}, and commas were in the correct places. Then I used the .map() function to transform elements in different variables/series into the correct format by inserting "{:,.2f}".format to round the integer (now float) to two decimal places. This was applied to Total School Budget, Per Student Budget, Average Math Test Scores per School, Average Reading Scores per School, Percent of Students Passing Math per School, Percent of Students Passing Reading per School, and Percent of Students Passing Overall per School. I tried to take it a small step further by adding a $ for the variables that contained monetary values and a % for the variables that contained percentage values, but this made calculations further down difficult (see the Scores by School Spending and Scores by School Type sections where I could not get code to work, even with Xpert Learning Assistant).
 
 ------------------------------------------------------------------------
 
 Highest-Performing Schools (by % Overall Passing)
 Sort the schools by % Overall Passing in descending order and display the top 5 rows.
-
-Save the results in a DataFrame called "top_schools".
--
+- The top five schools were found by using the .sort_values() function with the condition ascending=False. This sorted the values in the overall_passing_rate from highest to lowest.
 ------------------------------------------------------------------------
 
 Lowest-Performing Schools (by % Overall Passing)
 Sort the schools by % Overall Passing in ascending order and display the top 5 rows.
-
-Save the results in a DataFrame called "bottom_schools".
--
+- The top five schools were found by using the .sort_values() function with the condition ascending=True. This sorted the values in the overall_passing_rate from lowest to highest.
 ------------------------------------------------------------------------
 
 Math Scores by Grade
 Perform the necessary calculations to create a DataFrame that lists the average math score for students of each grade level (9th, 10th, 11th, 12th) at each school.
--
+- First the data was separated by grade with the provided code, then those variables were used to group scores by school name and the average math scores.
 ------------------------------------------------------------------------
 
 Reading Scores by Grade
 Create a DataFrame that lists the average reading score for students of each grade level (9th, 10th, 11th, 12th) at each school.
--
+- This process was the same as Math scores by grade, but using reading scores instead of math scores.
 ------------------------------------------------------------------------
 
 Scores by School Spending
 Create a table that breaks down school performance based on average spending ranges (per student).
 Use the scores above to create a DataFrame called spending_summary.
-
-Include the following metrics in the table:
-
-Average math score
-
-Average reading score
-
-% passing math (the percentage of students who passed math)
-
-% passing reading (the percentage of students who passed reading)
-
-% overall passing (the percentage of students who passed math AND reading)
--
+- I really struggled with this part and had to comment it out because I tried various methods with Xpert Learning Assistant but could not the code to work. I think there is an issue with how I formatted the budget, spending per student, and percent passing scores but I was able to use those values in other areas of analysis without a problem. Cell 29 is the issue.
 ------------------------------------------------------------------------
 Scores by School Size
 Use the following code to bin the per_school_summary.
@@ -146,9 +131,10 @@ labels = ["Small (<1000)", "Medium (1000-2000)", "Large (2000-5000)"]
 Use pd.cut on the "Total Students" column of the per_school_summary DataFrame.
 
 Create a DataFrame called size_summary that breaks down school performance based on school size (small, medium, or large).
--
+- I initially had success with getting this section to give the desired outputs, but I had to go back to the initial per_school_summary df to add in school_types. Once I did that, for some reason the calculations in cells 36 and 37 did not work.
 ------------------------------------------------------------------------
 Scores by School Type
 Use the per_school_summary DataFrame from the previous step to create a new DataFrame called type_summary.
 
 This new DataFrame should show school performance based on the "School Type".
+- I had the same issue as the Scores by School Spending section where I could not get the code to work for some reason, see cells 38 and 39.
